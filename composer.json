@@ -16,15 +16,15 @@
         "symfony/yaml": "^5.0 || ^6.0"
     },
     "require-dev": {
-        "cdn77/coding-standard": "^6.0",
+        "cdn77/coding-standard": "^6.1.1",
         "ergebnis/composer-normalize": "^2.42",
-        "infection/infection": "^0.26.0",
-        "phpstan/extension-installer": "^1.0",
-        "phpstan/phpstan": "^0.12.92",
+        "infection/infection": "^0.26.21",
+        "phpstan/extension-installer": "^1.1",
+        "phpstan/phpstan": "^0.12.100",
         "phpstan/phpstan-phpunit": "0.12.22",
         "phpstan/phpstan-strict-rules": "0.12.11",
-        "phpunit/phpunit": "^9.5",
-        "simpod/php-coveralls-mirror": "^3.0"
+        "phpunit/phpunit": "^9.6.16",
+        "simpod/php-coveralls-mirror": "^3.0.1"
     },
     "autoload": {
         "psr-4": {
@@ -47,6 +47,7 @@
     },
     "scripts": {
         "post-update-cmd": [
+            "composer bump --dev-only",
             "composer normalize"
         ]
     }
