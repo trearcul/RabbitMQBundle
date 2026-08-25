@@ -8,21 +8,12 @@ use Cdn77\RabbitMQBundle\DependencyInjection\Configuration;
 
 final class Binding
 {
-    /** @var Bindable */
-    private $bindable;
-
-    /** @var string */
-    private $routingKey;
-
-    /** @var mixed[] */
-    private $arguments;
-
     /** @param mixed[] $arguments */
-    public function __construct(Bindable $bindable, string $routingKey, array $arguments = [])
-    {
-        $this->bindable = $bindable;
-        $this->routingKey = $routingKey;
-        $this->arguments = $arguments;
+    public function __construct(
+        private Bindable $bindable,
+        private string $routingKey,
+        private array $arguments = [],
+    ) {
     }
 
     /** @param mixed[] $configuration */

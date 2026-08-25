@@ -16,17 +16,10 @@ final class SetUpCommand extends Command
     private const string NAME = RabbitMQExtension::ALIAS . ':setup';
     private const string DESCRIPTION = 'Set up exchanges and queues from configuration';
 
-    /** @var SetupAction */
-    private $setupAction;
-
-    /** @var Topology */
-    private $topology;
-
-    public function __construct(SetupAction $setupAction, Topology $topology)
-    {
-        $this->setupAction = $setupAction;
-        $this->topology = $topology;
-
+    public function __construct(
+        private SetupAction $setupAction,
+        private Topology $topology,
+    ) {
         parent::__construct();
     }
 

@@ -19,26 +19,22 @@ final class Dsn
     private const int DEFAULT_PORT = 5672;
     private const string DEFAULT_VHOST = '/';
 
-    /** @var string */
-    private $host;
+    private string $host;
 
-    /** @var int */
-    private $port;
+    private int $port;
 
-    /** @var string|null */
-    private $username;
+    private string|null $username = null;
 
-    /** @var string|null */
-    private $password;
+    private string|null $password = null;
 
-    /** @var string */
-    private $vhost;
+    private string $vhost;
 
     /** @var array<array<mixed>|string> */
-    private $parameters = [];
+    private array $parameters = [];
 
-    public function __construct(string $dsn)
-    {
+    public function __construct(
+        string $dsn,
+    ) {
         $parts = parse_url($dsn);
 
         if ($parts === false) {

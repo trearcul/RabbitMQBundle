@@ -14,12 +14,9 @@ use Cdn77\RabbitMQBundle\RabbitMQ\Connection;
 
 final class SetupAction
 {
-    /** @var Connection */
-    private $connection;
-
-    public function __construct(Connection $connection)
-    {
-        $this->connection = $connection;
+    public function __construct(
+        private Connection $connection,
+    ) {
     }
 
     public function setup(Topology $topology): void

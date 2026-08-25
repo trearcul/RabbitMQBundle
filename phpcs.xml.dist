@@ -16,7 +16,6 @@
 
     <rule ref="Cdn77">
         <exclude name="Cdn77.NamingConventions.ValidConstantName.ClassConstantNotUpperCase" />
-        <exclude name="SlevomatCodingStandard.TypeHints.PropertyTypeHint.MissingNativeTypeHint" />
         <exclude name="SlevomatCodingStandard.PHP.RequireExplicitAssertion.RequiredExplicitAssertion" />
     </rule>
 </ruleset>

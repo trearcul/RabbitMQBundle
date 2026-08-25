@@ -15,13 +15,9 @@ final class ConsumerListCommand extends Command
     private const string NAME = 'debug:' . RabbitMQExtension::ALIAS . ':consumers';
     private const string DESCRIPTION = 'Show list of defined consumers.';
 
-    /** @var ConsumerStorage */
-    private $consumerStorage;
-
-    public function __construct(ConsumerStorage $consumerStorage)
-    {
-        $this->consumerStorage = $consumerStorage;
-
+    public function __construct(
+        private ConsumerStorage $consumerStorage,
+    ) {
         parent::__construct();
     }
 

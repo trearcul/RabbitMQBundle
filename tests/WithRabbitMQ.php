@@ -18,19 +18,11 @@ use function is_string;
 
 trait WithRabbitMQ
 {
-    /**
-     * @internal
-     *
-     * @var BunnyConnection
-     */
-    private $connection;
+    /** @internal */
+    private BunnyConnection $connection;
 
-    /**
-     * @internal
-     *
-     * @var ConsumerRunner
-     */
-    private $consumerRunner;
+    /** @internal */
+    private ConsumerRunner|null $consumerRunner = null;
 
     public function setupTopology(Topology $topologyConfiguration): void
     {

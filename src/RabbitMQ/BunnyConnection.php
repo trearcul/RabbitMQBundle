@@ -14,17 +14,15 @@ use Throwable;
 
 final class BunnyConnection implements Connection
 {
-    /** @var Client */
-    private $client;
+    private Client $client;
 
-    /** @var Channel|null */
-    private $channel;
+    private Channel|null $channel = null;
 
-    /** @var Channel */
-    private $transactionalChannel;
+    private Channel|null $transactionalChannel = null;
 
-    public function __construct(Configuration\Connection $configuration)
-    {
+    public function __construct(
+        Configuration\Connection $configuration,
+    ) {
         $options = [
             'host' => $configuration->getHost(),
             'port' => $configuration->getPort(),

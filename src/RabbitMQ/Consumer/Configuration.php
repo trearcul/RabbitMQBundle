@@ -6,33 +6,13 @@ namespace Cdn77\RabbitMQBundle\RabbitMQ\Consumer;
 
 final class Configuration
 {
-    /** @var string */
-    private $queueName;
-
-    /** @var int|null */
-    private $maxMessages;
-
-    /** @var float|null */
-    private $maxSeconds;
-
-    /** @var int */
-    private $prefetchCount;
-
-    /** @var int */
-    private $prefetchSize;
-
     public function __construct(
-        string $queueName,
-        int $prefetchCount = 1,
-        int $prefetchSize = 0,
-        int|null $maxMessages = null,
-        float|null $maxSeconds = null,
+        private string $queueName,
+        private int $prefetchCount = 1,
+        private int $prefetchSize = 0,
+        private int|null $maxMessages = null,
+        private float|null $maxSeconds = null,
     ) {
-        $this->queueName = $queueName;
-        $this->prefetchCount = $prefetchCount;
-        $this->prefetchSize = $prefetchSize;
-        $this->maxMessages = $maxMessages;
-        $this->maxSeconds = $maxSeconds;
     }
 
     public function getQueueName(): string

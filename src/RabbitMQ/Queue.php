@@ -8,37 +8,17 @@ use Cdn77\RabbitMQBundle\DependencyInjection\Configuration;
 
 final class Queue implements Bindable
 {
-    /** @var string */
-    private $name;
-
-    /** @var bool */
-    private $durable;
-
-    /** @var bool */
-    private $exclusive;
-
     /** @var Binding[] */
-    private $bindings = [];
-
-    /** @var bool */
-    private $autoDelete;
-
-    /** @var mixed[] */
-    private $arguments;
+    private array $bindings = [];
 
     /** @param mixed[] $arguments */
     public function __construct(
-        string $name,
-        bool $durable = false,
-        bool $exclusive = false,
-        bool $autoDelete = false,
-        array $arguments = [],
+        private string $name,
+        private bool $durable = false,
+        private bool $exclusive = false,
+        private bool $autoDelete = false,
+        private array $arguments = [],
     ) {
-        $this->name = $name;
-        $this->durable = $durable;
-        $this->exclusive = $exclusive;
-        $this->autoDelete = $autoDelete;
-        $this->arguments = $arguments;
     }
 
     /** @param mixed[] $configuration */

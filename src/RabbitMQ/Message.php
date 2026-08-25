@@ -9,22 +9,12 @@ class Message
     public const string HEADER_CONTENT_TYPE = 'content-type';
     public const string HEADER_DELIVERY_MODE = 'delivery-mode';
 
-    /** @var string */
-    public $body;
-
-    /** @var mixed[] */
-    public $headers;
-
     /** @param mixed[] $headers */
-    public function __construct(string $body, array $headers = [])
-    {
-        $this->body = $body;
-
-        if (! isset($headers[self::HEADER_DELIVERY_MODE])) {
-            $headers[self::HEADER_DELIVERY_MODE] = DeliveryMode::PERSISTENT;
-        }
-
-        $this->headers = $headers;
+    public function __construct(
+        public string $body,
+        public array $headers = [],
+    ) {
+        $this->headers[self::HEADER_DELIVERY_MODE] ??= DeliveryMode::PERSISTENT;
     }
 
     /** @param mixed[] $headers */

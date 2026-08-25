@@ -9,12 +9,9 @@ use Cdn77\RabbitMQBundle\RabbitMQ\Connection;
 
 final class RejectOperation
 {
-    /** @var Connection */
-    private $connection;
-
-    public function __construct(Connection $connection)
-    {
-        $this->connection = $connection;
+    public function __construct(
+        private Connection $connection,
+    ) {
     }
 
     public function handle(Message $message, bool $requeue = true): void

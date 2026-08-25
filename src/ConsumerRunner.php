@@ -17,15 +17,11 @@ use function microtime;
 
 final class ConsumerRunner
 {
-    /** @var Connection */
-    private $connection;
+    private int $processedMessageCount = 0;
 
-    /** @var int */
-    private $processedMessageCount = 0;
-
-    public function __construct(Connection $connection)
-    {
-        $this->connection = $connection;
+    public function __construct(
+        private Connection $connection,
+    ) {
     }
 
     public function run(Consumer $consumer): void

@@ -8,42 +8,18 @@ use Cdn77\RabbitMQBundle\DependencyInjection\Configuration;
 
 final class Exchange implements Bindable
 {
-    /** @var string */
-    private $name;
-
-    /** @var ExchangeType */
-    private $exchangeType;
-
-    /** @var bool */
-    private $durable;
-
-    /** @var bool */
-    private $autoDelete;
-
-    /** @var bool */
-    private $internal;
-
-    /** @var mixed[] */
-    private $arguments;
-
     /** @var Binding[] */
-    private $bindings = [];
+    private array $bindings = [];
 
     /** @param mixed[] $arguments */
     public function __construct(
-        string $name,
-        ExchangeType $exchangeType,
-        bool $durable = true,
-        bool $autoDelete = false,
-        bool $internal = false,
-        array $arguments = [],
+        private string $name,
+        private ExchangeType $exchangeType,
+        private bool $durable = true,
+        private bool $autoDelete = false,
+        private bool $internal = false,
+        private array $arguments = [],
     ) {
-        $this->name = $name;
-        $this->exchangeType = $exchangeType;
-        $this->durable = $durable;
-        $this->autoDelete = $autoDelete;
-        $this->internal = $internal;
-        $this->arguments = $arguments;
     }
 
     /** @param mixed[] $configuration */

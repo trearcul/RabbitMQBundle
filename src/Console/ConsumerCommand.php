@@ -24,18 +24,15 @@ final class ConsumerCommand extends Command
     private const string CONSUMER_ARGUMENT_NAME = 'consumerName';
     private const string CONSUMER_ARGUMENT_DESCRIPTION = 'Name of consumer.';
 
-    /** @var ConsumerStorage */
-    private $consumerStorage;
+    private ConsumerRunner $consumerRunner;
 
-    /** @var ConsumerRunner */
-    private $consumerRunner;
-
-    public function __construct(ConsumerRunner $consumeProcess, ConsumerStorage $consumerStorage)
-    {
+    public function __construct(
+        ConsumerRunner $consumeProcess,
+        private ConsumerStorage $consumerStorage,
+    ) {
         parent::__construct();
 
         $this->consumerRunner = $consumeProcess;
-        $this->consumerStorage = $consumerStorage;
     }
 
     protected function configure(): void

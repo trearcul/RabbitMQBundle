@@ -11,12 +11,9 @@ use React\Promise\PromiseInterface;
 
 final class GetOperation
 {
-    /** @var Connection */
-    private $connection;
-
-    public function __construct(Connection $connection)
-    {
-        $this->connection = $connection;
+    public function __construct(
+        private Connection $connection,
+    ) {
     }
 
     /** @return Message[] */

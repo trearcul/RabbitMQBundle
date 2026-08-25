@@ -11,21 +11,18 @@ use Cdn77\RabbitMQBundle\RabbitMQ\Queue;
 
 final class Topology
 {
-    /** @var Exchange[] */
-    private $exchanges;
-
-    /** @var Queue[] */
-    private $queues;
-
     /**
      * @param Exchange[] $exchanges
      * @param Binding[][] $exchangeBindings
      * @param Queue[] $queues
      * @param Binding[][] $queueBindings
      */
-    public function __construct(array $exchanges, array $exchangeBindings, array $queues, array $queueBindings)
-    {
-        $this->exchanges = $exchanges;
+    public function __construct(
+        private array $exchanges,
+        array $exchangeBindings,
+        private array $queues,
+        array $queueBindings,
+    ) {
         foreach ($this->exchanges as $exchange) {
             if (! isset($exchangeBindings[$exchange->getName()])) {
                 continue;
@@ -36,7 +33,6 @@ final class Topology
             }
         }
 
-        $this->queues = $queues;
         foreach ($this->queues as $queue) {
             if (! isset($queueBindings[$queue->getName()])) {
                 continue;

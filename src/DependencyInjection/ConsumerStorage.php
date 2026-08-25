@@ -10,7 +10,7 @@ use InvalidArgumentException;
 final class ConsumerStorage
 {
     /** @var Consumer[] */
-    private $consumers = [];
+    private array $consumers = [];
 
     /** @return Consumer[] */
     public function getConsumers(): array

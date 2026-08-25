@@ -11,19 +11,13 @@ use Cdn77\RabbitMQBundle\RabbitMQ\Operation\AcknowledgeOperation;
 
 final class InMemoryConsumer implements Consumer
 {
-    /** @var AcknowledgeOperation */
-    private $acknowledgeOperation;
-
-    /** @var Configuration */
-    private $configuration;
-
     /** @var Message[] */
-    private $consumedMessages = [];
+    private array $consumedMessages = [];
 
-    public function __construct(AcknowledgeOperation $acknowledgeOperation, Configuration $configuration)
-    {
-        $this->acknowledgeOperation = $acknowledgeOperation;
-        $this->configuration = $configuration;
+    public function __construct(
+        private AcknowledgeOperation $acknowledgeOperation,
+        private Configuration $configuration,
+    ) {
     }
 
     public function consume(Message $message): void

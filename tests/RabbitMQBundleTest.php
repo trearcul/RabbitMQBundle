@@ -11,8 +11,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 final class RabbitMQBundleTest extends TestCase
 {
-    /** @var Cdn77RabbitMQBundle */
-    private $bundle;
+    private Cdn77RabbitMQBundle $bundle;
 
     public function testBuild(): void
     {

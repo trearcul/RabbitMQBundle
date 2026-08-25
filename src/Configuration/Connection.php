@@ -12,48 +12,16 @@ final class Connection
     private const int DEFAULT_CONNECTION_TIMEOUT = 3;
     private const int DEFAULT_READ_WRITE_TIMEOUT = 5;
 
-    /** @var string */
-    private $host;
-
-    /** @var int */
-    private $port;
-
-    /** @var string */
-    private $vhost;
-
-    /** @var string|null */
-    private $user;
-
-    /** @var string|null */
-    private $password;
-
-    /** @var int */
-    private $heartbeat;
-
-    /** @var int */
-    private $connectionTimeout;
-
-    /** @var int */
-    private $readWriteTimeout;
-
     public function __construct(
-        string $host,
-        int $port,
-        string $vhost,
-        string|null $user,
-        string|null $password,
-        int $heartbeat = self::DEFAULT_HEARTBEAT,
-        int $connectionTimeout = self::DEFAULT_CONNECTION_TIMEOUT,
-        int $readWriteTimeout = self::DEFAULT_READ_WRITE_TIMEOUT,
+        private string $host,
+        private int $port,
+        private string $vhost,
+        private string|null $user,
+        private string|null $password,
+        private int $heartbeat = self::DEFAULT_HEARTBEAT,
+        private int $connectionTimeout = self::DEFAULT_CONNECTION_TIMEOUT,
+        private int $readWriteTimeout = self::DEFAULT_READ_WRITE_TIMEOUT,
     ) {
-        $this->host = $host;
-        $this->port = $port;
-        $this->vhost = $vhost;
-        $this->user = $user;
-        $this->password = $password;
-        $this->heartbeat = $heartbeat;
-        $this->connectionTimeout = $connectionTimeout;
-        $this->readWriteTimeout = $readWriteTimeout;
     }
 
     /** @param mixed[] $configuration */
